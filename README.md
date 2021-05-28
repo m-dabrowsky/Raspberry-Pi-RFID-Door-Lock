@@ -67,8 +67,9 @@ sudo pip3 install mfrc522
 
 
 ## Schemat połączenia
-
-<img src="C:\Users\micha\Documents\GitHub\Raspberry Pi RFID Door Lock\DoorLock_bb.jpg" style="zoom:33%;" />
+<div class="container">
+    <img src="https://github.com/m-dabrowsky/Raspberry-Pi-RFID-Door-Lock/blob/main/Assets/DoorLock_bb.jpg" width="100%"></img>
+</div>
 
 ### Tabela połączeń
 
@@ -108,13 +109,20 @@ sudo pip3 install mfrc522
 
 Położenie ramienia serwa zmienia się, podając odpowiedzi sygnał PWM. W zależności od parametrów sygnału, serwo może obracać w lewo/prawo, ustawić w jedną ze skrajnych pozycji (0 i 180 stopni), w pozycję neutralną (90 stopni) lub po prostu obrócić się o 360 stopni.  
 
+
+<div class="container">
+    <img src="https://github.com/m-dabrowsky/Raspberry-Pi-RFID-Door-Lock/blob/main/Assets/PWM.png" width="55%"></img>
+</div>
+
+
 Serwo oczekuje sygnału PWM o częstotliwości 50 Hz (cykl o długości 20 ms). Układ sterujący próbkuje długość stanu wysokiego. Może ona przyjmować charakterystyczne wartości które układ sterujący zinterpretuje jako: 
 
 - 0,6 ms - ustaw serwo w pozycji skrajnej 0
 - 1,5 ms - ustaw serwo w pozycji neutralnej (90 stopni)
 - 2,5 ms - ustaw serwo w pozycji skrajnej 180 stopni
 
-Podstawiając powyższe czasy do wzoru: $$wypełnienie = { t[ms] * 100] \over 20 [ms]}$$ , otrzymano odpowiednio wypełnienia: 3%, 7,5%, 12,5%.
+Podstawiając powyższe czasy do wzoru: <img src="https://latex.codecogs.com/png.latex?\bg_white&space;\fn_phv&space;wypelnienie&space;=&space;\frac{t&space;[ms]*&space;100}{20[ms]}" title="wypelnienie = \frac{t [ms]* 100}{20[ms]}" />, otrzymano odpowiednio wypełnienia: 3%, 7,5%, 12,5%.
+
 
 
 
@@ -220,20 +228,27 @@ sleep(0.5)                              # Czekanie 0.5s
 
 Użytkownik zostaje poinformowany o zamykaniu zamka i następuje dwu krotne odliczanie za pomocą zielonej diody która się zapali i zgaśnie po czym serwo zmieni swoja pozycję na 0 stopni. Te działanie zostanie zakończone informacją potwierdzającą zamknięcie zamka. 
 
-
+<div class="container">
+    <img src="https://github.com/m-dabrowsky/Raspberry-Pi-RFID-Door-Lock/blob/main/Assets/Correct%20Card.gif" width="55%"></img>
+</div>
 
 #### Przyłożono niepoprawną kartę
 
 ```python
  lcd.clear()                                 # Czyszczenie ekranu
  lcd.write_string("Invalid card")            # Wyświetlenie informacji o błędnej karcie dostępu
- GPIO.output(RED_LED,GPIO.HIGH)              # Zapalenie GREEN_LED
+ GPIO.output(RED_LED,GPIO.HIGH)              # Zapalenie RED_LED
  sleep(1)                                    # Czekanie 1s
  lcd.clear()                                 # Czyszczenie ekranu
- GPIO.output(RED_LED,GPIO.LOW)               # Zgaszenie GREEN_LED
+ GPIO.output(RED_LED,GPIO.LOW)               # Zgaszenie RED_LED
 ```
 
 Przyłożenie nieprawidłowej karty spowoduje poinformowanie o tym fakcie za pomocą czerwonej diody oraz wiadomości: `Invalid card`
+
+
+<div class="container">
+    <img src="https://github.com/m-dabrowsky/Raspberry-Pi-RFID-Door-Lock/blob/main/Assets/Invaild%20Card.gif" width="55%"></img>
+</div>
 
 
 
