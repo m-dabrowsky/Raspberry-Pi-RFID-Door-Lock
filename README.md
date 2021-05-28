@@ -71,6 +71,7 @@ sudo pip3 install mfrc522
     <img src="https://github.com/m-dabrowsky/Raspberry-Pi-RFID-Door-Lock/blob/main/Assets/DoorLock_bb.jpg" width="100%"></img>
 </div>
 
+!!! Na schemacie wdarł się błąd - Vss i Vdd wyświetlacza zostały ze sobą zamienione !!!
 ### Tabela połączeń
 
 | RFID RC-522   | Raspberry Pi 4               |
@@ -84,8 +85,8 @@ sudo pip3 install mfrc522
 | SCK           | GPIO 11                      |
 | SDA           | GPIO 8                       |
 | **LCD 16x2**  |                              |
-| Vss           | 5V (fizyczny pin 2)          |
-| Vdd           | GND                          |
+| Vss           | GND                          |
+| Vdd           | 5V (fizyczny pin 2)          |
 | V0            | środkowa nóżka potencjometru |
 | RS            | GPIO 5                       |
 | RW            | -                            |
