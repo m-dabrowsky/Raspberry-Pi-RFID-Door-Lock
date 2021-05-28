@@ -85,9 +85,9 @@ while True:
 
         lcd.clear()                                 # Czyszczenie ekranu
         lcd.write_string("Invalid card")            # Wyświetlenie informacji o błędnej karcie dostępu
-        GPIO.output(RED_LED,GPIO.HIGH)              # Zapalenie GREEN_LED
+        GPIO.output(RED_LED,GPIO.HIGH)              # Zapalenie RED_LED
         sleep(1)                                    # Czekanie 1s
         lcd.clear()                                 # Czyszczenie ekranu
-        GPIO.output(RED_LED,GPIO.LOW)               # Zgaszenie GREEN_LED
+        GPIO.output(RED_LED,GPIO.LOW)               # Zgaszenie RED_LED
 pwm.stop()
 GPIO.cleanup()                                      # wyłączenie wszystkich kanałów PWM
