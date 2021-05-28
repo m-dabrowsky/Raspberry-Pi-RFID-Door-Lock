@@ -43,7 +43,7 @@ while True:
     lcd.clear()                                     # Czyszczenie ekranu
     lcd.write_string('Put your ID card')            # Wyświetlenie informacji o zbliżeniu karty
 
-    id = reader.read()                              # Odczyt ID z karty
+    id, text = reader.read()                        # Odczyt ID z karty
         
     if(id == correctID):                            # jeśli przyłozona karta jest zgodna z ID
 
@@ -79,7 +79,7 @@ while True:
             sleep(0.5)                              # Czekanie 0.5s
 
 
-        #GPIO.output(PWM_PIN, False)
+        
 
     else:
 
